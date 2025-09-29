@@ -6,27 +6,25 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.util.Set;
 
-@Setter
-@Getter
 @Entity
+@Getter
+@Setter
 @ToString
 @RequiredArgsConstructor
-public class Details {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Setter
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(nullable = false, length = 100)
+    private String firstName;
+    @Column(nullable = false, length = 100)
+    private String lastName;
 
-    @Setter
-    private String name;
-
-    @Setter
-    private LocalDate birthDate;
-
+    @Column
+    @ManyToMany
+    Set<Book> writtenBooks;
 
 }
