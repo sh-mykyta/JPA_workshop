@@ -2,6 +2,7 @@ package entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
+@RequiredArgsConstructor
 public class Details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

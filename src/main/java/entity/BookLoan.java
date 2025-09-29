@@ -11,21 +11,24 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @RequiredArgsConstructor
-public class AppUser {
-
+public class BookLoan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int id;
 
+    @Column
+    private LocalDate loanDate;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+    @Column
+    private LocalDate dueDate;
 
+    @Column
+    private boolean returned;
 
-    @Column(nullable = false, unique = true)
-    private String password;
+    @ManyToOne
+    AppUser borrower;
+    @ManyToOne
+    Book book;
 
-    private LocalDate regDate;
-    @OneToOne
-    private Details userDetails;
 }

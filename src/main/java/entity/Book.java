@@ -5,27 +5,23 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Setter
 @Getter
 @Entity
 @RequiredArgsConstructor
-public class AppUser {
-
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @Column(nullable = false, unique = true)
-    private String username;
+    private String isbn;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
+    private int maxLoanDays;
 
 
-    @Column(nullable = false, unique = true)
-    private String password;
-
-    private LocalDate regDate;
-    @OneToOne
-    private Details userDetails;
 }
