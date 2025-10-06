@@ -27,4 +27,10 @@ public class Author {
     @ManyToMany
     Set<Book> writtenBooks;
 
+    public void addBook(Book book) {
+        writtenBooks.add(book);
+    }
+    public void removeBook(Book book) {
+        writtenBooks.remove(book);
+    }
 }

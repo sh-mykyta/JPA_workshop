@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -25,5 +27,17 @@ public class Book {
     @Column(nullable = false)
     private int maxLoanDays;
 
+    @ManyToMany
+    List<Author> authors;
+
+    @Column
+    private boolean available = true;
+
+    public void  addAuthor(Author author) {
+        authors.add(author);
+    }
+    public void  removeAuthor(Author author) {
+        authors.remove(author);
+    }
 
 }
