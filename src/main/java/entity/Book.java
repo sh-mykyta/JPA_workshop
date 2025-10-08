@@ -28,6 +28,7 @@ public class Book {
     private int maxLoanDays;
 
     @ManyToMany
+    @JoinColumn
     List<Author> authors;
 
     @Column

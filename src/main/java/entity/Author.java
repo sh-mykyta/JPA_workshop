@@ -23,8 +23,8 @@ public class Author {
     @Column(nullable = false, length = 100)
     private String lastName;
 
-    @Column
     @ManyToMany
+    @JoinColumn
     Set<Book> writtenBooks;
 
     public void addBook(Book book) {
